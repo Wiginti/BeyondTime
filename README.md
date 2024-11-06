@@ -1,1 +1,1 @@
-# GameName
+# GameNAME
