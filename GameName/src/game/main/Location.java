@@ -1,21 +1,17 @@
-package main;
+package game.main;
 
 import java.util.List;
 
+import game.entities.Item;
+
 public class Location {
 
-	private int level;
 	private List<Item> items;
 	private List<Character> characters;
 	private String name;
 	
-	public Location(int myLevel, String myName) {
-		this.level = myLevel;
+	public Location(String myName) {
 		this.name = myName;
-	}
-	
-	public int getLevel() {
-		return this.level;
 	}
 	
 	public void addItem(Item item) {

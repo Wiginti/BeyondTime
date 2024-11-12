@@ -1,4 +1,6 @@
-package main;
+package game.entities;
+
+import game.main.Key;
 
 public class Safe extends Item {
 
