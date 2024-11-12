@@ -7,9 +7,11 @@ public class Location {
 	private int level;
 	private List<Item> items;
 	private List<Character> characters;
+	private String name;
 	
-	public Location(int myLevel) {
+	public Location(int myLevel, String myName) {
 		this.level = myLevel;
+		this.name = myName;
 	}
 	
 	public int getLevel() {
@@ -30,6 +32,10 @@ public class Location {
 	
 	public void removeCharacter(Character character) {
 		characters.remove(character);
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 	
 }
