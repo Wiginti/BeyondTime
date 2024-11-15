@@ -7,11 +7,6 @@ import game.map.World;
 
 public class Main {
 	
-	//private List<String> messages;
-	/*private enum commandes {
-		HELP, LOOK;
-		}*/
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		

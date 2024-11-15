@@ -23,12 +23,26 @@ public class Hero {
 		this.name = newName;
 	}
 	
+	//Getter and Setter for Health
+	
 	public int getHealth() {
 		return this.healthPoint;
 	}
 	
+	public void removeHealth(int amount) {
+		this.healthPoint -= amount;
+	}
+	
+	public void addHealth(int amount) {
+		this.healthPoint += amount;
+	}
+	
+	//Getter for bag
+	
 	public Bag getBag() {
 		return this.bag;
 	}
+	
+	
 
 }
