@@ -13,8 +13,6 @@ public class Main {
 		World world = World.getWorld();
 		Hero hero = world.getHero();
 		
-		world.getLocation(0).getName();
-		
 		System.out.println("Bonjour jeune Aventurier !\nBienvenue dans l'aventure BeyondTime.\nTout d'abord quel est ton nom ?");
 		Scanner scanner = new Scanner(System.in);
 		hero.changeName(scanner.next());

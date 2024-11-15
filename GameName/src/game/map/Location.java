@@ -35,11 +35,11 @@ public class Location {
 	//Getter and setter for Items
 	
 	public void addItem(Item item) {
-		items.add(item);
+		this.items.add(item);
 	}
 	
 	public void removeItem(Item item) {
-		items.remove(item);
+		this.items.remove(item);
 	}
 	
 	public List<Item> getItems(){
@@ -47,7 +47,16 @@ public class Location {
 	}
 	
 	public boolean isItemInLocation(Item item) {
-		return items.contains(item);
+		return this.items.contains(item);
+	}
+	
+	public Item getItemByName(String name) {
+		for(Item item : this.items) {
+			if(item.getClass().getName().equals(name)) {
+				return item;
+			}
+		}
+		return null;
 	}
 	
 	//Getter and setter for Characters
