@@ -1,5 +1,4 @@
 package game.map;
-
 import java.util.List;
 
 import game.entities.Item;
@@ -32,6 +31,10 @@ public class Location {
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public List<Exit> getExits(){
+		
 	}
 	
 }

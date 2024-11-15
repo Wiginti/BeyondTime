@@ -1,7 +1,7 @@
 package game.commandes;
 
-public abstract class Command {
+public interface Command {
 	
-	private String label;
+	public abstract void onExecute();
 
 }

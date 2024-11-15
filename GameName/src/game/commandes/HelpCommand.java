@@ -1,9 +1,13 @@
 package game.commandes;
 
-public class HelpCommand extends Command {
+public class HelpCommand implements Command {
 	
-	public void display() {
-		System.out.println("Voici la liste des commandes disponibles :" );
+	@Override
+	public void onExecute() {
+		// TODO Auto-generated method stub
+		System.out.println("Liste des commandes disponibles : " +
+		"GO Location \n" + 
+				"MOVE Location");		
 	}
 
 }
