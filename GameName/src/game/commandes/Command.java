@@ -2,6 +2,6 @@ package game.commandes;
 
 public interface Command {
 	
-	public abstract void onExecute();
+	public abstract void onExecute(String[] args);
 
 }
