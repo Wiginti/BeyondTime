@@ -11,13 +11,12 @@ public class Hero {
 	private Location heroLocation;
 	
 	public static final int DEFAULT_HEATLH = 100;
-	public static final Location DEFAULT_LOCATION = World.getWorld().getLocation(0);
 	
 	public Hero(String myName) {
 		this.healthPoint = Hero.DEFAULT_HEATLH;
 		this.name = myName;
 		this.bag = new Bag();
-		this.heroLocation = DEFAULT_LOCATION;
+		this.heroLocation = null;
 	}
 	
 	public String getName() {

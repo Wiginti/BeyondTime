@@ -15,11 +15,11 @@ public class World {
 	public static final int NUMBER_LOCATIONS = 5;
 	
 	private World(String myName) {
-		World.hero = new Hero(myName);
 		World.locations = new Location[NUMBER_LOCATIONS];
 		for(int i = 0; i < World.NUMBER_LOCATIONS; i++) {
 			locations[i] = new Location(World.locationNames.get(i));
 		}
+		World.hero = new Hero(myName);
 	}
 	
 	public static World getWorld() {
