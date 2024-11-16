@@ -7,6 +7,7 @@ import game.commandes.HelpCommand;
 import game.commandes.LookCommand;
 import game.commandes.QuitCommand;
 import game.commandes.TakeCommand;
+import game.commandes.UseCommand;
 import game.entities.Hero;
 import game.map.World;
 
@@ -25,26 +26,42 @@ public class Main {
 		
 		System.out.println("Bonjour " + hero.getName() + "\nAvant de commencer tu peux obtenir la liste des commandes disponibles pour jouer au jeu en tapant HELP");
 		while(theEnd != true) {
-			String inputString = scanner.next();
-			if(inputString.toLowerCase().contains("GO")) {
+			System.out.print("> ");
+			scanner = new Scanner(System.in);
+			String inputString = scanner.nextLine();
+			String[] parts = inputString.split(" ");
+			System.out.println(inputString);
+			System.out.println(parts[0]);
+			
+			String[] arguments = new String[parts.length - 1];
+			System.arraycopy(parts, 1, arguments, 0, arguments.length);
+			
+			switch(parts[0].toLowerCase()) {
+			case "go":
 				GoCommand goCommand = new GoCommand();
-				goCommand.onExecute(args);
-			} else if (inputString.toLowerCase().contains("help")) {
+				goCommand.onExecute(arguments);
+				break;
+			case "help":
 				HelpCommand helpCommand = new HelpCommand();
-				helpCommand.onExecute(args);
-			} else if (inputString.toLowerCase().contains("LOOK")) {
+				helpCommand.onExecute(arguments);
+				break;
+			case "look":
 				LookCommand lookCommand = new LookCommand();
-				lookCommand.onExecute(args);
-			} else if (inputString.toLowerCase().contains("QUIT")) {
+				lookCommand.onExecute(arguments);
+				break;
+			case "quit":
 				QuitCommand quitCommand = new QuitCommand();
-				quitCommand.onExecute(args);
-			} else if (inputString.toLowerCase().contains("QUIT")) {
+				quitCommand.onExecute(arguments);
+				break;
+			case "take":
 				TakeCommand takeCommand = new TakeCommand();
-				takeCommand.onExecute(args);
-			} else if (inputString.toLowerCase().contains("QUIT")) {
-				QuitCommand quitCommand = new QuitCommand();
-				quitCommand.onExecute(args);
-			} else {
+				takeCommand.onExecute(arguments);
+				break;
+			case "use":
+				UseCommand useCommand = new UseCommand();
+				useCommand.onExecute(arguments);
+				break;
+			default:
 				System.out.println("La commande n'existe pas");
 			}
 		}
