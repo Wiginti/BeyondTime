@@ -46,6 +46,17 @@ public class Location {
 		return this.items;
 	}
 	
+	public void displayItems() {
+		try {
+			for(Item item : this.items) {
+				System.out.println("List of items available in this Location :");
+				System.out.println("- " + item.getClass().getName());
+			}
+		} catch (Exception e) {
+			System.out.println("There is no item in this Location");
+		}
+	}
+	
 	public boolean isItemInLocation(Item item) {
 		return this.items.contains(item);
 	}
@@ -71,6 +82,17 @@ public class Location {
 	
 	public List<Character> getCharacters(){
 		return this.characters;
+	}
+	
+	public void displayCharacters() {
+		try {
+			for(Character character : this.characters) {
+				System.out.println("List of characters available in this Location :");
+				System.out.println("- " + character.getClass().getName());
+			}
+		} catch (Exception e) {
+			System.out.println("There is no character in this Location");
+		}
 	}
 	
 	//Getter for Name

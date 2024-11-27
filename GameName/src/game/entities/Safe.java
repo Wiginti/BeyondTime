@@ -1,8 +1,12 @@
 package game.entities;
 
-public class Safe extends Item {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Safe extends Item implements Openable {
 
 	private Key key;
+	private ArrayList<Item> items;
 	
 	public Safe() {
 		this.key = new Key();
@@ -10,6 +14,11 @@ public class Safe extends Item {
 	
 	public Key getKey() {
 		return this.key;
+	}
+	
+	@Override
+	public List<Item> open() {
+		return items;
 	}
 	
 }

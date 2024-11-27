@@ -14,57 +14,70 @@ import game.map.World;
 public class Main {
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		//attribute to see when the game is finished
 		boolean theEnd = false;
 		
 		World world = World.getWorld();
 		Hero hero = world.getHero();
+		hero.setHeroLocation(world.getLocation(0));
 		
 		System.out.println("Bonjour jeune Aventurier !\nBienvenue dans l'aventure BeyondTime.\nTout d'abord quel est ton nom ?");
 		Scanner scanner = new Scanner(System.in);
 		hero.changeName(scanner.next());
 		
-		System.out.println("Bonjour " + hero.getName() + "\nAvant de commencer tu peux obtenir la liste des commandes disponibles pour jouer au jeu en tapant HELP");
+		System.out.println("Hello " + hero.getName() + "\nAvant de commencer tu peux obtenir la liste des commandes disponibles pour jouer au jeu en tapant HELP");
 		while(theEnd != true) {
 			System.out.print("> ");
+			
+			//Get the inputs from the player
 			scanner = new Scanner(System.in);
 			String inputString = scanner.nextLine();
-			String[] parts = inputString.split(" ");
-			System.out.println(inputString);
-			System.out.println(parts[0]);
 			
-			String[] arguments = new String[parts.length - 1];
-			System.arraycopy(parts, 1, arguments, 0, arguments.length);
-			
-			switch(parts[0].toLowerCase()) {
-			case "go":
-				GoCommand goCommand = new GoCommand();
-				goCommand.onExecute(arguments);
-				break;
-			case "help":
-				HelpCommand helpCommand = new HelpCommand();
-				helpCommand.onExecute(arguments);
-				break;
-			case "look":
-				LookCommand lookCommand = new LookCommand();
-				lookCommand.onExecute(arguments);
-				break;
-			case "quit":
-				QuitCommand quitCommand = new QuitCommand();
-				quitCommand.onExecute(arguments);
-				break;
-			case "take":
-				TakeCommand takeCommand = new TakeCommand();
-				takeCommand.onExecute(arguments);
-				break;
-			case "use":
-				UseCommand useCommand = new UseCommand();
-				useCommand.onExecute(arguments);
-				break;
-			default:
-				System.out.println("La commande n'existe pas");
+			//Player can't enter an empty input
+			if(inputString.matches(".*[a-zA-Z].*")) 
+			{
+				String[] parts = inputString.split(" ");
+				
+				//Get the arguments in an String array
+				String[] arguments = new String[parts.length - 1];
+				System.arraycopy(parts, 1, arguments, 0, arguments.length);
+				
+				//Manage the different commands
+				
+				switch(parts[0].toLowerCase()) {
+				case "go":
+					GoCommand goCommand = new GoCommand();
+					goCommand.onExecute(arguments);
+					break;
+				case "help":
+					HelpCommand helpCommand = new HelpCommand();
+					helpCommand.onExecute(arguments);
+					break;
+				case "look":
+					LookCommand lookCommand = new LookCommand();
+					lookCommand.onExecute(arguments);
+					break;
+				case "quit":
+					QuitCommand quitCommand = new QuitCommand();
+					quitCommand.onExecute(arguments);
+					break;
+				case "take":
+					TakeCommand takeCommand = new TakeCommand();
+					takeCommand.onExecute(arguments);
+					break;
+				case "use":
+					UseCommand useCommand = new UseCommand();
+					useCommand.onExecute(arguments);
+					break;
+				default:
+					System.out.println("Command doesn't exit ! Type HELP to see the list of the commands availables.");
+				}
+			} else {
+				System.out.println("Please enter a command.");
 			}
 		}
+			
 		
 		
 		

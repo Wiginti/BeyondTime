@@ -1,8 +1,9 @@
 package game.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Bag extends Item {
+public class Bag extends Item implements Openable {
 	
 	private int size;
 	
@@ -17,8 +18,9 @@ public class Bag extends Item {
 		return this.size;
 	}
 	
-	public ArrayList<Item> getItems(){
-		return this.items;
+	@Override
+	public List<Item> open() {
+		return items;
 	}
 	
 	public void addItem(Item item) {
