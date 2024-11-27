@@ -1,6 +1,5 @@
 package game.commandes;
 
-import game.entities.Item;
 import game.map.Location;
 import game.map.World;
 

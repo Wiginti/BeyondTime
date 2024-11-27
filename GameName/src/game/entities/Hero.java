@@ -41,6 +41,10 @@ public class Hero {
 		this.healthPoint += amount;
 	}
 	
+	public void setHealth(int amount) {
+		this.healthPoint = amount;
+	}
+	
 	//Getter for bag
 	
 	public Bag getBag() {

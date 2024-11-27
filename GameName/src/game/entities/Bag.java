@@ -19,8 +19,20 @@ public class Bag extends Item implements Openable {
 	}
 	
 	@Override
-	public List<Item> open() {
+	public List<Item> getItems() {
 		return items;
+	}
+	
+	public Item getItemByName(String name) {
+	    if (items == null || name == null) {
+	        return null;
+	    }
+	    for (Item item : items) {
+	        if (item.getClass().getSimpleName().equalsIgnoreCase(name)) {
+	            return item;
+	        }
+	    }
+	    return null;
 	}
 	
 	public void addItem(Item item) {

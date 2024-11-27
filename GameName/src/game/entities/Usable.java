@@ -1,7 +1,7 @@
 package game.entities;
 
 public interface Usable {
-	
-	public abstract void use();
+
+	void use(Hero hero);
 
 }

@@ -9,6 +9,7 @@ import game.commandes.QuitCommand;
 import game.commandes.TakeCommand;
 import game.commandes.UseCommand;
 import game.entities.Hero;
+import game.entities.Potion;
 import game.map.World;
 
 public class Main {
@@ -25,6 +26,7 @@ public class Main {
 		System.out.println("Bonjour jeune Aventurier !\nBienvenue dans l'aventure BeyondTime.\nTout d'abord quel est ton nom ?");
 		Scanner scanner = new Scanner(System.in);
 		hero.changeName(scanner.next());
+		hero.getBag().addItem(new Potion());
 		
 		System.out.println("Hello " + hero.getName() + "\nAvant de commencer tu peux obtenir la liste des commandes disponibles pour jouer au jeu en tapant HELP");
 		while(theEnd != true) {

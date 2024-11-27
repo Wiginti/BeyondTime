@@ -17,7 +17,7 @@ public class Safe extends Item implements Openable {
 	}
 	
 	@Override
-	public List<Item> open() {
+	public List<Item> getItems() {
 		return items;
 	}
 	
