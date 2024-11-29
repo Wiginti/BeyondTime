@@ -12,6 +12,7 @@ public class AttackCommand implements Command {
 	public void onExecute(String[] args) {
 		Hero hero = World.getWorld().getHero();
 		Location currentLoc = hero.getHeroLocation();
+		
 		Entity currentEntity = currentLoc.getEntityByName(args[0]);
 		if(currentEntity != null) {
 		if(args.length == 0) {
@@ -20,5 +21,5 @@ public class AttackCommand implements Command {
 			
 		}
 	}
-	
+}
 }
