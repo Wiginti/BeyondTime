@@ -1,9 +1,8 @@
 package game.entities;
 
 import game.map.Location;
-import game.map.World;
 
-public class Hero {
+public class Hero extends Entity implements Fightable {
 	
 	private int healthPoint;
 	private String name;
@@ -17,32 +16,6 @@ public class Hero {
 		this.name = myName;
 		this.bag = new Bag();
 		this.heroLocation = null;
-	}
-	
-	public String getName() {
-		return this.name;
-	}
-	
-	public void changeName(String newName) {
-		this.name = newName;
-	}
-	
-	//Getter and Setter for Health
-	
-	public int getHealth() {
-		return this.healthPoint;
-	}
-	
-	public void removeHealth(int amount) {
-		this.healthPoint -= amount;
-	}
-	
-	public void addHealth(int amount) {
-		this.healthPoint += amount;
-	}
-	
-	public void setHealth(int amount) {
-		this.healthPoint = amount;
 	}
 	
 	//Getter for bag

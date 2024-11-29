@@ -7,7 +7,7 @@ import game.entities.Hero;
 
 public class World {
 	
-	private static final List<String> locationNames = Arrays.asList("pREHISTORY", "name2", "name3", "name4", "name5");
+	private static final List<String> locationNames = Arrays.asList("Prehistory", "name2", "name3", "name4", "name5");
 	public static World myWorld = new World("null");
 	private static Location[] locations;
 	private static Hero hero;

@@ -12,6 +12,11 @@ public class Potion extends Item implements Usable {
 	public Potion() {
 		this.healthAmount = healthAmountDefault;
 	}
+	
+	@Override
+	public String toString() {
+		return "Potion";
+	}
 
 	@Override
 	public void use(Hero hero) {

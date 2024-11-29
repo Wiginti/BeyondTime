@@ -3,7 +3,7 @@ package game.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bag extends Item implements Openable {
+public class Bag extends Item implements Containable {
 	
 	private int size;
 	
@@ -12,6 +12,7 @@ public class Bag extends Item implements Openable {
 	
 	public Bag() {
 		this.size = 0;
+		this.items = new ArrayList<Item>();
 	}
 	
 	public int getSize() {
@@ -46,6 +47,17 @@ public class Bag extends Item implements Openable {
 		if(items.contains(item)) {
 			items.remove(item);
 			this.size--;
+		}
+	}
+	
+	public void displayItems() {
+		try {
+			System.out.println("List of items available in your Bag :");
+			for(Item item : this.items) {
+				System.out.println("- " + item.getClass().getSimpleName());
+			}
+		} catch (Exception e) {
+			System.out.println("There is no item in your Bag !");
 		}
 	}
 	

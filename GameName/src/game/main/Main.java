@@ -2,6 +2,7 @@ package game.main;
 
 import java.util.Scanner;
 
+import game.commandes.AttackCommand;
 import game.commandes.GoCommand;
 import game.commandes.HelpCommand;
 import game.commandes.LookCommand;
@@ -10,6 +11,8 @@ import game.commandes.TakeCommand;
 import game.commandes.UseCommand;
 import game.entities.Hero;
 import game.entities.Potion;
+import game.entities.Safe;
+import game.map.Location;
 import game.map.World;
 
 public class Main {
@@ -21,7 +24,21 @@ public class Main {
 		
 		World world = World.getWorld();
 		Hero hero = world.getHero();
-		hero.setHeroLocation(world.getLocation(0));
+		Location l1 = world.getLocation(0);
+		Location l2 = world.getLocation(1);
+		Location l3 = world.getLocation(2);
+		Location l4 = world.getLocation(3);
+		Location l5 = world.getLocation(4);
+		hero.setHeroLocation(l1);
+		
+		//Init Safe
+		Safe safe1 = new Safe();
+		safe1.addItem(new Potion());
+		
+		//Init Locations
+		l1.addItem(safe1);
+		l1.addItem(safe1.getKey());
+		
 		
 		System.out.println("Bonjour jeune Aventurier !\nBienvenue dans l'aventure BeyondTime.\nTout d'abord quel est ton nom ?");
 		Scanner scanner = new Scanner(System.in);
@@ -71,6 +88,10 @@ public class Main {
 				case "use":
 					UseCommand useCommand = new UseCommand();
 					useCommand.onExecute(arguments);
+					break;
+				case "attack":
+					AttackCommand attackCommand = new AttackCommand();
+					attackCommand.onExecute(arguments);
 					break;
 				default:
 					System.out.println("Command doesn't exit ! Type HELP to see the list of the commands availables.");
