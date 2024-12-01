@@ -5,6 +5,7 @@ import game.map.Location;
 public class Hero extends Entity implements Fightable {
 	
 	private int healthPoint;
+	private int damageAmount;
 	private String name;
 	private Bag bag;
 	private Location heroLocation;
@@ -32,6 +33,22 @@ public class Hero extends Entity implements Fightable {
 	
 	public Location getHeroLocation() {
 		return this.heroLocation;
+	}
+	
+	//getter name
+	public String getName() {
+		return this.name;
+	}
+	
+	//getter health
+	public int getHealth() {
+		return this.healthPoint;
+	}
+	
+	//getter damageAmount
+	
+	public int getDamage() {
+		return this.damageAmount;
 	}
 	
 	
