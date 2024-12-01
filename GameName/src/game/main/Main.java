@@ -12,6 +12,7 @@ import game.commandes.UseCommand;
 import game.entities.Hero;
 import game.entities.Potion;
 import game.entities.Safe;
+import game.map.Exit;
 import game.map.Location;
 import game.map.World;
 
@@ -24,28 +25,35 @@ public class Main {
 		
 		World world = World.getWorld();
 		Hero hero = world.getHero();
-		Location l1 = world.getLocation(0);
-		Location l2 = world.getLocation(1);
-		Location l3 = world.getLocation(2);
-		Location l4 = world.getLocation(3);
-		Location l5 = world.getLocation(4);
-		hero.setHeroLocation(l1);
+		Location prehistory = world.getLocation(0);
+		Location antiquity = world.getLocation(1);
+		Location middle_ages = world.getLocation(2);
+		Location renaissance = world.getLocation(3);
+		Location contemporary_era = world.getLocation(4);
+		hero.setHeroLocation(prehistory);
 		
 		//Init Safe
 		Safe safe1 = new Safe();
 		safe1.addItem(new Potion());
 		
+		//Init Exits
+		prehistory.addExit("Antiquity", new Exit("A shimmering portal to Antiquity.", antiquity));
+        antiquity.addExit("Middle Ages", new Exit("A glowing archway to the Middle Ages.", middle_ages));
+        middle_ages.addExit("Renaissance", new Exit("A mysterious door to the Renaissance.", renaissance));
+        renaissance.addExit("Contemporary Era", new Exit("A futuristic portal to the Contemporary Era.", contemporary_era));
+        contemporary_era.addExit("Prehistory", new Exit("A wormhole leading back to Prehistory.", prehistory));
+		
 		//Init Locations
-		l1.addItem(safe1);
-		l1.addItem(safe1.getKey());
+		prehistory.addItem(safe1);
+		prehistory.addItem(safe1.getKey());
 		
 		
-		System.out.println("Bonjour jeune Aventurier !\nBienvenue dans l'aventure BeyondTime.\nTout d'abord quel est ton nom ?");
+		System.out.println("Hello young Adventurer!\nWelcome to the BeyondTime adventure.\nFirst, what is your name?");
 		Scanner scanner = new Scanner(System.in);
 		hero.changeName(scanner.next());
 		hero.getBag().addItem(new Potion());
 		
-		System.out.println("Hello " + hero.getName() + "\nAvant de commencer tu peux obtenir la liste des commandes disponibles pour jouer au jeu en tapant HELP");
+		System.out.println("Hello " + hero.getName() + "\nBefore we begin, you can get the list of available commands to play the game by typing HELP.");
 		while(theEnd != true) {
 			System.out.print("> ");
 			

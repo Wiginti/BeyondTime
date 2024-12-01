@@ -1,5 +1,6 @@
 package game.map;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,11 +11,14 @@ public class Location {
 	
 	private String name;
 	private ArrayList<Item> items = new ArrayList<Item>();
+	private String description;
 	private List<Entity> entities;
 	private Map<String, Exit> exits;
 	
-	public Location(String myName) {
+	public Location(String myName, String description) {
 		this.name = myName;
+		this.exits = new HashMap<>();
+		this.description = description;
 	}
 	
 	//Getter and setter for exits
@@ -33,6 +37,11 @@ public class Location {
             System.out.println(" - " + neighbor);
         }
     }
+	
+	//getter description
+	public String getDescription() {
+		return this.description;
+	}
 	
 	//Getter and setter for Items
 	

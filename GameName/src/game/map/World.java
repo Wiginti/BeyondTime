@@ -7,7 +7,23 @@ import game.entities.Hero;
 
 public class World {
 	
-	private static final List<String> locationNames = Arrays.asList("Prehistory", "name2", "name3", "name4", "name5");
+    // List of location names
+    private static final List<String> locationNames = Arrays.asList(
+        "Prehistory",
+        "Antiquity",
+        "Middle Ages",
+        "Renaissance",
+        "Contemporary Era"
+    );
+
+    // List of corresponding location descriptions
+    private static final List<String> locationDescriptions = Arrays.asList(
+        "A wild land full of mammoths and early humans.",
+        "An age of great empires and philosophers.",
+        "A time of knights, castles, and feudal lords.",
+        "A flourishing period of arts and scientific discovery.",
+        "A modern world of technology and skyscrapers."
+    );
 	public static World myWorld = new World("null");
 	private static Location[] locations;
 	private static Hero hero;
@@ -17,7 +33,7 @@ public class World {
 	private World(String myName) {
 		World.locations = new Location[NUMBER_LOCATIONS];
 		for(int i = 0; i < World.NUMBER_LOCATIONS; i++) {
-			locations[i] = new Location(World.locationNames.get(i));
+			locations[i] = new Location(World.locationNames.get(i), World.locationDescriptions.get(i));
 		}
 		World.hero = new Hero(myName);
 	}
