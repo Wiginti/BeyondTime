@@ -36,3 +36,4 @@ public class Boss extends Entity implements Interactable, Fightable {
 	}
 	
 }
+
