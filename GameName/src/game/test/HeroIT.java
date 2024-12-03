@@ -12,14 +12,14 @@ public class HeroIT {
     
     @Test
     void testHeroConstructor() {
-        // Arrange
+        
         String expectedName = "TestHero";
         int expectedHealthPoint = Hero.DEFAULT_HEATLH;
 
-        // Act
+        
         Hero hero = new Hero();
 
-        // Assert
+        
         assertEquals(expectedName, hero.getName(), "Hero name should match the expected name.");
         assertEquals(expectedHealthPoint, hero.getHealth(), "Hero health points should match the default value.");
         assertNotNull(hero.getBag(), "Hero bag should not be null.");
@@ -34,7 +34,7 @@ public class HeroIT {
         
         Bag bag = hero.getBag();
 
-        // Assert
+        
         assertNotNull(bag, "The bag should not be null.");
     }
     
