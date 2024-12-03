@@ -16,6 +16,7 @@ class LocationIT {
 	@Before
 	public void setUp() {
 		location1 = new Location("Prehistory");
+		bag1 = new Bag();
 	}
 	
 	@Test

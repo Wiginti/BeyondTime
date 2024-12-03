@@ -1,9 +1,8 @@
 package game.entities;
 
 import game.map.Location;
-import game.map.World;
 
-public class Hero {
+public class Hero extends Entity implements Fightable {
 	
 	private int healthPoint;
 	private String name;
@@ -11,35 +10,12 @@ public class Hero {
 	private Location heroLocation;
 	
 	public static final int DEFAULT_HEATLH = 100;
-	public static final Location DEFAULT_LOCATION = World.getWorld().getLocation(0);
 	
 	public Hero(String myName) {
 		this.healthPoint = Hero.DEFAULT_HEATLH;
 		this.name = myName;
 		this.bag = new Bag();
-		this.heroLocation = DEFAULT_LOCATION;
-	}
-	
-	public String getName() {
-		return this.name;
-	}
-	
-	public void changeName(String newName) {
-		this.name = newName;
-	}
-	
-	//Getter and Setter for Health
-	
-	public int getHealth() {
-		return this.healthPoint;
-	}
-	
-	public void removeHealth(int amount) {
-		this.healthPoint -= amount;
-	}
-	
-	public void addHealth(int amount) {
-		this.healthPoint += amount;
+		this.heroLocation = null;
 	}
 	
 	//Getter for bag

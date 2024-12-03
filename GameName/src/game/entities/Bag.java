@@ -1,8 +1,9 @@
 package game.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Bag extends Item {
+public class Bag extends Item implements Containable {
 	
 	private int size;
 	
@@ -11,14 +12,28 @@ public class Bag extends Item {
 	
 	public Bag() {
 		this.size = 0;
+		this.items = new ArrayList<Item>();
 	}
 	
 	public int getSize() {
 		return this.size;
 	}
 	
-	public ArrayList<Item> getItems(){
-		return this.items;
+	@Override
+	public List<Item> getItems() {
+		return items;
+	}
+	
+	public Item getItemByName(String name) {
+	    if (items == null || name == null) {
+	        return null;
+	    }
+	    for (Item item : items) {
+	        if (item.getClass().getSimpleName().equalsIgnoreCase(name)) {
+	            return item;
+	        }
+	    }
+	    return null;
 	}
 	
 	public void addItem(Item item) {
@@ -32,6 +47,17 @@ public class Bag extends Item {
 		if(items.contains(item)) {
 			items.remove(item);
 			this.size--;
+		}
+	}
+	
+	public void displayItems() {
+		try {
+			System.out.println("List of items available in your Bag :");
+			for(Item item : this.items) {
+				System.out.println("- " + item.getClass().getSimpleName());
+			}
+		} catch (Exception e) {
+			System.out.println("There is no item in your Bag !");
 		}
 	}
 	
