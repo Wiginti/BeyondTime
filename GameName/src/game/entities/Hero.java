@@ -11,12 +11,14 @@ public class Hero extends Entity implements Fightable {
 	private Location heroLocation;
 	
 	public static final int DEFAULT_HEATLH = 100;
+	public static final int DEFAULT_DAMAGE = 25;
 	
 	public Hero() {
 		this.healthPoint = Hero.DEFAULT_HEATLH;
 		this.name = "";
 		this.bag = new Bag();
 		this.heroLocation = null;
+		this.damageAmount = DEFAULT_DAMAGE;
 	}
 	
 	//Getter for bag
@@ -42,8 +44,19 @@ public class Hero extends Entity implements Fightable {
 	
 	//getter damageAmount
 	
+	@Override
 	public int getDamage() {
 		return this.damageAmount;
+	}
+
+	@Override
+	public void attack(Entity entity) {
+		entity.removeHealth(this.damageAmount);
+	}
+
+	@Override
+	public void removeHealth(int amount) {
+		this.healthPoint -= amount;	
 	}
 	
 	

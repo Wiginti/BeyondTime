@@ -9,6 +9,7 @@ import game.commandes.LookCommand;
 import game.commandes.QuitCommand;
 import game.commandes.TakeCommand;
 import game.commandes.UseCommand;
+import game.entities.Boss;
 import game.entities.Hero;
 import game.entities.Potion;
 import game.entities.Safe;
@@ -43,7 +44,11 @@ public class Main {
         renaissance.addExit("futuristic portal", new Exit("futuristic portal", contemporary_era));
         
         //Init Boss
-        
+        prehistory.addEntity(new Boss(40, 10, "Mammoth King Graath"));
+        antiquity.addEntity(new Boss(70, 15, "Pharaoh Ankh’set"));
+        middle_ages.addEntity(new Boss(120, 25, "Necromancer Malvorath"));
+        renaissance.addEntity(new Boss(200, 40, "Pirate King Blacktide"));
+        contemporary_era.addEntity(new Boss(330, 70, "Cyber-Tyrant Nexus"));
 		
 		//Init Locations
 		prehistory.addItem(safe1);
@@ -55,7 +60,7 @@ public class Main {
 		hero.changeName(scanner.next());
 		hero.getBag().addItem(new Potion());
 		
-		System.out.println("Hello " + hero.getName() + "\nBefore we begin, you can get the list of available commands to play the game by typing HELP.");
+		System.out.println("Hello " + hero.getName() + "\nIn this game, you will have to fight against Boss to continue into the next Level !\nBefore we begin, you can get the list of available commands to play the game by typing HELP.");
 		while(theEnd != true) {
 			System.out.print("> ");
 			

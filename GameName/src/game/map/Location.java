@@ -1,7 +1,6 @@
 package game.map;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,15 +10,17 @@ import game.entities.Item;
 public class Location {
 	
 	private String name;
-	private ArrayList<Item> items = new ArrayList<Item>();
+	private ArrayList<Item> items;
 	private String description;
-	private List<Entity> entities;
+	private ArrayList<Entity> entities;
 	private Map<String, Exit> exits;
 	
 	public Location(String myName, String description) {
 		this.name = myName;
-		this.exits = new HashMap<String, Exit>();
+		this.items = new ArrayList<Item>();
 		this.description = description;
+		this.entities = new ArrayList<Entity>();
+		this.exits = new HashMap<String, Exit>();
 	}
 	
 	//Getter and setter for exits
@@ -58,7 +59,7 @@ public class Location {
 		this.items.remove(item);
 	}
 	
-	public List<Item> getItems(){
+	public ArrayList<Item> getItems(){
 		return this.items;
 	}
 	
@@ -105,18 +106,18 @@ public class Location {
 		entities.remove(entity);
 	}
 	
-	public List<Entity> getEntities(){
+	public ArrayList<Entity> getEntities(){
 		return this.entities;
 	}
 	
 	public void displayEntities() {
 		try {
-			System.out.println("List of characters available in this Location :");
+			System.out.println("List of entities available in this Location :");
 			for(Entity entity : this.entities) {
-				System.out.println("- " + entity.getClass().getName());
+				System.out.println("- " + entity.getName());
 			}
 		} catch (Exception e) {
-			System.out.println("There is no character in this Location");
+			System.out.println("There is no entity in this Location");
 		}
 	}
 	

@@ -11,9 +11,7 @@ public abstract class Entity {
 		return this.healthPoint;
 	}
 	
-	public void removeHealth(int amount) {
-		this.healthPoint -= amount;
-	}
+	public abstract void removeHealth(int amount);
 	
 	public void addHealth(int amount) {
 		this.healthPoint += amount;

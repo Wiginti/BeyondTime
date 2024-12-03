@@ -6,11 +6,18 @@ public class Boss extends Entity implements Interactable, Fightable {
 	private int healthPoint;
 	private int damageAmount;
 	
-	public Boss(int healthPoint, int damageAmount) {
+	public Boss(int healthPoint, int damageAmount, String name) {
 		this.healthPoint = healthPoint;
 		this.damageAmount = damageAmount;
+		this.name = name;
 	}
 	
+	@Override
+	public void attack(Entity entity) {
+		entity.removeHealth(this.damageAmount);
+	}
+	
+	@Override
 	public int getDamage() {
 		return this.damageAmount;
 	}
@@ -21,6 +28,11 @@ public class Boss extends Entity implements Interactable, Fightable {
 	
 	public String getName() {
 		return this.name;
+	}
+
+	@Override
+	public void removeHealth(int amount) {
+		this.healthPoint -= amount;	
 	}
 	
 }

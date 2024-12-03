@@ -12,4 +12,10 @@ public class Villager extends Entity implements Interactable {
 		this.healthPoint = Villager.DEFAULT_HEALTHPOINT;
 	}
 
+	@Override
+	public void removeHealth(int amount) {
+		this.healthPoint -= amount;
+		
+	}
+
 }

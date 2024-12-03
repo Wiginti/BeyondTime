@@ -17,7 +17,7 @@ public class UseCommand implements Command {
 						Potion potion = (Potion) bag.getItemByName("Potion"); // Cast because getItemByName return an Item
 						potion.use(hero);
 						System.out.println("You use a potion.");
-						System.out.println("Your new health amount is :" + hero.getHealth());
+						System.out.println("Your new health amount is : " + hero.getHealth() + " HP");
 						bag.removeItem(potion);
 					} catch (Exception e){
 						System.out.println("You don't have any Potion in your bag !");
