@@ -12,14 +12,13 @@ public class AttackCommand implements Command {
 	public void onExecute(String[] args) {
 		Hero hero = World.getWorld().getHero();
 		Location currentLoc = hero.getHeroLocation();
-		
 		Entity currentEntity = currentLoc.getEntityByName(args[0]);
-		if(currentEntity != null) {
 		if(args.length == 0) {
 			System.out.println("Usage : attack [Entity]");
 		} else if(args.length == 1) {
-			Entity entity = 
-			if()
+			if(currentEntity != null) {
+				int amountDamage = hero.getDamage();
+				hero.attack(currentEntity, amountDamage);
 		}
 	}
 }
