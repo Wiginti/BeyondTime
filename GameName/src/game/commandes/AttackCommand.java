@@ -1,5 +1,6 @@
 package game.commandes;
 
+import game.entities.Boss;
 import game.entities.Entity;
 import game.entities.Hero;
 import game.entities.Item;
@@ -17,8 +18,13 @@ public class AttackCommand implements Command {
 			System.out.println("Usage : attack [Entity]");
 		} else if(args.length == 1) {
 			if(currentEntity != null) {
-				int amountDamage = hero.getDamage();
-				hero.attack(currentEntity, amountDamage);
+				int amountDamageHero = hero.getDamage();
+				hero.attack(currentEntity, amountDamageHero);
+				if(currentEntity instanceof Boss) {
+					Boss currentBoss = (Boss) currentEntity;
+					int amountDamageBoss = currentBoss.getDamage();
+					currentBoss.attack(hero, amountDamageBoss);
+				}
 		}
 	}
 }

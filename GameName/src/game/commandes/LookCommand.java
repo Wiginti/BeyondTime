@@ -36,13 +36,12 @@ public class LookCommand {
 			case "destinations":
 				currentLoc.displayExits();
 				break;
+			case "health":
+				System.out.println("You have " + hero.getHealth() + " HP");
+				break;
 			default:
-				System.out.println("Usage : look [characters, items, bag]");
+				System.out.println("Usage : look [characters, items, bag, health]");
 			}
-			
-			//Item currentItem = currentLoc.getItemByName(args[1]);
-			//if(currentLoc.isItemInLocation(currentItem)) {
-			//}
 		}
 	}
 

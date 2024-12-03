@@ -41,6 +41,9 @@ public class Main {
         antiquity.addExit("glowing archway", new Exit("glowing archway", middle_ages));
         middle_ages.addExit("mysterious door", new Exit("mysterious door", renaissance));
         renaissance.addExit("futuristic portal", new Exit("futuristic portal", contemporary_era));
+        
+        //Init Boss
+        
 		
 		//Init Locations
 		prehistory.addItem(safe1);
