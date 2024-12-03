@@ -12,9 +12,9 @@ public class Hero extends Entity implements Fightable {
 	
 	public static final int DEFAULT_HEATLH = 100;
 	
-	public Hero(String myName) {
+	public Hero() {
 		this.healthPoint = Hero.DEFAULT_HEATLH;
-		this.name = myName;
+		this.name = "";
 		this.bag = new Bag();
 		this.heroLocation = null;
 	}
@@ -33,11 +33,6 @@ public class Hero extends Entity implements Fightable {
 	
 	public Location getHeroLocation() {
 		return this.heroLocation;
-	}
-	
-	//getter name
-	public String getName() {
-		return this.name;
 	}
 	
 	//getter health

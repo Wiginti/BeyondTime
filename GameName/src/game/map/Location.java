@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import game.entities.Entity;
 import game.entities.Item;
@@ -17,25 +18,29 @@ public class Location {
 	
 	public Location(String myName, String description) {
 		this.name = myName;
-		this.exits = new HashMap<>();
+		this.exits = new HashMap<String, Exit>();
 		this.description = description;
 	}
 	
 	//Getter and setter for exits
 	
 	public void addExit(String neighborName, Exit exit) {
-        exits.put(neighborName, exit);
+        this.exits.put(neighborName, exit);
     }
 	
-	public Exit getExit(String neighborName) {
-        return exits.get(neighborName);
+	public Exit getExit(String exitName) {
+		return this.exits.get(exitName);
     }
 	
 	public void displayExits() {
-        System.out.println("Exits from " + name + ":");
-        for (String neighbor : exits.keySet()) {
-            System.out.println(" - " + neighbor);
-        }
+		if(exits.entrySet() != null) {
+	        System.out.println("Exits from " + this.name + ":");
+	        for (Entry<String, Exit> neighbor : exits.entrySet()) {
+	            System.out.println(" - " + neighbor.getValue().getName());
+	        }	
+		} else {
+			System.out.println("There is no exit in this Location");
+		}
     }
 	
 	//getter description
@@ -76,6 +81,15 @@ public class Location {
 		for(Item item : this.items) {
 			if(item.getClass().getSimpleName().equals(name)) {
 				return item;
+			}
+		}
+		return null;
+	}
+	
+	public Entity getEntityByName() {
+		for(Entity entity : this.entities) {
+			if(entity.getName().equals(name)) {
+				return entity;
 			}
 		}
 		return null;

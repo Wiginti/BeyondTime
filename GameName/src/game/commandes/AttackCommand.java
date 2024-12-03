@@ -18,7 +18,8 @@ public class AttackCommand implements Command {
 		if(args.length == 0) {
 			System.out.println("Usage : attack [Entity]");
 		} else if(args.length == 1) {
-			
+			Entity entity = 
+			if()
 		}
 	}
 }

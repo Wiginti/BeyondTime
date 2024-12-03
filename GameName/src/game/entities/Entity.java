@@ -30,6 +30,5 @@ public abstract class Entity {
 	public void changeName(String newName) {
 		this.name = newName;
 	}
-	
 
 }

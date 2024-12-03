@@ -37,11 +37,10 @@ public class Main {
 		safe1.addItem(new Potion());
 		
 		//Init Exits
-		prehistory.addExit("Antiquity", new Exit("A shimmering portal to Antiquity.", antiquity));
-        antiquity.addExit("Middle Ages", new Exit("A glowing archway to the Middle Ages.", middle_ages));
-        middle_ages.addExit("Renaissance", new Exit("A mysterious door to the Renaissance.", renaissance));
-        renaissance.addExit("Contemporary Era", new Exit("A futuristic portal to the Contemporary Era.", contemporary_era));
-        contemporary_era.addExit("Prehistory", new Exit("A wormhole leading back to Prehistory.", prehistory));
+		prehistory.addExit("shimmering portal", new Exit("shimmering portal", antiquity));
+        antiquity.addExit("glowing archway", new Exit("glowing archway", middle_ages));
+        middle_ages.addExit("mysterious door", new Exit("mysterious door", renaissance));
+        renaissance.addExit("futuristic portal", new Exit("futuristic portal", contemporary_era));
 		
 		//Init Locations
 		prehistory.addItem(safe1);

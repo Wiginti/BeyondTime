@@ -10,7 +10,7 @@ public class HelpCommand implements Command {
 		"QUIT : Quit the game. \n" + 
 		"TAKE [item] : add the item of the current location (if it's possible) and stock it in the bag. \n" +
 		"USE [item] : Use the items desired. \n" +
-		"LOCATION : display a list of locations available. \n " +
+		"LOCATION : display a list of locations available. \n" +
 		"LOOK [Location] : if no arguments is given, display a description of the location. Otherwise display a description of the item desired. \n");		
 	}
 }

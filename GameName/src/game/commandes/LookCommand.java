@@ -30,7 +30,12 @@ public class LookCommand {
 				currentLoc.displayEntities();
 				break;
 			case "bag":
-				hero.getBag().displayItems();		
+				hero.getBag().displayItems();
+				break;
+			case "destination":
+			case "destinations":
+				currentLoc.displayExits();
+				break;
 			default:
 				System.out.println("Usage : look [characters, items, bag]");
 			}

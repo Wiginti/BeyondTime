@@ -24,18 +24,18 @@ public class World {
         "A flourishing period of arts and scientific discovery.",
         "A modern world of technology and skyscrapers."
     );
-	public static World myWorld = new World("null");
+	public static World myWorld = new World();
 	private static Location[] locations;
 	private static Hero hero;
 	
 	public static final int NUMBER_LOCATIONS = 5;
 	
-	private World(String myName) {
+	private World() {
 		World.locations = new Location[NUMBER_LOCATIONS];
 		for(int i = 0; i < World.NUMBER_LOCATIONS; i++) {
 			locations[i] = new Location(World.locationNames.get(i), World.locationDescriptions.get(i));
 		}
-		World.hero = new Hero(myName);
+		World.hero = new Hero();
 	}
 	
 	public static World getWorld() {

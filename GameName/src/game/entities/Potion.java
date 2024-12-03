@@ -1,7 +1,5 @@
 package game.entities;
 
-import game.entities.Hero;
-
 public class Potion extends Item implements Usable {
 	
 	private int healthAmount;
@@ -28,6 +26,10 @@ public class Potion extends Item implements Usable {
 		else {
 			hero.addHealth(healthAmount);	
 		}
+	}
+	
+	public int getHealthAmount() {
+		return this.healthAmount;
 	}
 	
 	

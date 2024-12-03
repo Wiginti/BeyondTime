@@ -12,21 +12,21 @@ public class PotionIT {
 
 	    @Before
 	    void setUp() {
-	        hero = new Hero("TestHero");
+	        hero = new Hero();
 	    }
 
 	    @Test
 	    void testConstructorWithAmount() {
 	        Potion potion = new Potion(30);
 	        assertNotNull(potion);
-	        assertEquals(30, potion.healthAmount, "La quantité de santé devrait être initialisée correctement");
+	        assertEquals(30, potion.getHealthAmount(), "La quantité de santé devrait être initialisée correctement");
 	    }
 
 	    @Test
 	    void testDefaultConstructor() {
 	        Potion potion = new Potion();
 	        assertNotNull(potion);
-	        assertEquals(50, potion.healthAmount, "La quantité de santé par défaut devrait être 50");
+	        assertEquals(50, potion.getHealthAmount(), "La quantité de santé par défaut devrait être 50");
 	    }
 
 	    @Test
@@ -51,5 +51,3 @@ public class PotionIT {
 	        assertEquals(Hero.DEFAULT_HEATLH, hero.getHealth(), "La santé du héros ne devrait pas excéder la santé maximale");
 	    }
 	}
-
-}
