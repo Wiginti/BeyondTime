@@ -20,8 +20,8 @@ public class Potion extends Item implements Usable {
 
 	@Override
 	public void use(Hero hero) {
-		if(hero.getHealth() + healthAmount > Hero.DEFAULT_HEATLH) {
-			hero.setHealth(Hero.DEFAULT_HEATLH);
+		if(hero.getHealth() + healthAmount > Hero.DEFAULT_HEALTH) {
+			hero.setHealth(Hero.DEFAULT_HEALTH);
 		}
 		else {
 			hero.addHealth(healthAmount);	

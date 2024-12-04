@@ -7,11 +7,18 @@ public abstract class Entity {
 	
 	//Getter and Setter for Health
 	
+	public Entity(int defaultHealthpoint, String name) {
+		this.healthPoint = defaultHealthpoint;
+		this.name = name;
+	}
+
 	public int getHealth() {
 		return this.healthPoint;
 	}
 	
-	public abstract void removeHealth(int amount);
+	public void removeHealth(int amount) {
+		this.healthPoint -= amount;
+	}
 	
 	public void addHealth(int amount) {
 		this.healthPoint += amount;

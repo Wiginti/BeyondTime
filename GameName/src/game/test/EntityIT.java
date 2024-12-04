@@ -1,10 +1,11 @@
 package game.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
 
+import game.entities.Boss;
 import game.entities.Entity;
 
 public class EntityIT {
@@ -12,7 +13,7 @@ public class EntityIT {
     @Test
     public void testGetHealth() {
         
-        Entity entity = new Entity() {};
+        Entity entity = new Boss(0, 0, "BossName");
         entity.setHealth(100);
 
        
@@ -25,7 +26,7 @@ public class EntityIT {
     @Test
     public void testRemoveHealth() {
         
-        Entity entity = new Entity() {};
+    	Entity entity = new Boss(0, 0, "BossName");
         entity.setHealth(100);
 
         entity.removeHealth(20);
@@ -36,7 +37,7 @@ public class EntityIT {
     @Test
     public void testAddHealth() {
         
-        Entity entity = new Entity() {};
+    	Entity entity = new Boss(0, 0, "BossName");
         entity.setHealth(80);
         
         entity.addHealth(20);
@@ -48,7 +49,7 @@ public class EntityIT {
     @Test
     public void testSetHealth() {
         
-        Entity entity = new Entity() {};
+    	Entity entity = new Boss(0, 0, "BossName");
 
         entity.setHealth(50);
 
@@ -58,23 +59,23 @@ public class EntityIT {
     @Test
     public void testGetName() {
         
-        Entity entity = new Entity() {};
+    	Entity entity = new Boss(0, 0, "BossName");
         entity.changeName("TestName");
         
         String name = entity.getName();
         
-        assertEquals("TestName", name, "Name should be 'TestName'");
+        assertTrue("TestName".equals(name));
     }
 
     @Test
     public void testChangeName() {
         
-        Entity entity = new Entity() {};
+    	Entity entity = new Boss(0, 0, "BossName");
         entity.changeName("OldName");
 
         entity.changeName("NewName");
 
-        assertEquals("NewName", entity.getName(), "Name should be updated to 'NewName'");
+        assertTrue("NewName".equals(entity.getName()));
     }
 
 }

@@ -10,9 +10,10 @@ import game.commandes.QuitCommand;
 import game.commandes.TakeCommand;
 import game.commandes.UseCommand;
 import game.entities.Boss;
+import game.entities.Chest;
 import game.entities.Hero;
 import game.entities.Potion;
-import game.entities.Safe;
+import game.entities.Villager;
 import game.map.Exit;
 import game.map.Location;
 import game.map.World;
@@ -34,8 +35,19 @@ public class Main {
 		hero.setHeroLocation(prehistory);
 		
 		//Init Safe
-		Safe safe1 = new Safe();
-		safe1.addItem(new Potion());
+		Chest chest1 = new Chest();
+		chest1.addItem(new Potion());
+		Chest chest2 = new Chest();
+		chest2.addItem(new Potion());
+		chest2.addItem(new Potion());
+		chest2.addItem(new Potion());
+		Chest chest3 = new Chest();
+		chest3.addItem(new Potion());
+		Chest chest4 = new Chest();
+		chest4.addItem(new Potion());
+		chest4.addItem(new Potion());
+		chest4.addItem(new Potion());
+		chest4.addItem(new Potion());
 		
 		//Init Exits
 		prehistory.addExit("shimmering portal", new Exit("shimmering portal", antiquity));
@@ -43,25 +55,44 @@ public class Main {
         middle_ages.addExit("mysterious door", new Exit("mysterious door", renaissance));
         renaissance.addExit("futuristic portal", new Exit("futuristic portal", contemporary_era));
         
+        //Init Villagers
+        Villager grokk = new Villager(40, "Grokk the Gatherer");
+        prehistory.addEntity(grokk);
+        
         //Init Boss
         prehistory.addEntity(new Boss(40, 10, "Mammoth King Graath"));
         antiquity.addEntity(new Boss(70, 15, "Pharaoh Ankh’set"));
         middle_ages.addEntity(new Boss(120, 25, "Necromancer Malvorath"));
         renaissance.addEntity(new Boss(200, 40, "Pirate King Blacktide"));
-        contemporary_era.addEntity(new Boss(330, 70, "Cyber-Tyrant Nexus"));
+        contemporary_era.addEntity(new Boss(330, 50, "Cyber-Tyrant Nexus"));
 		
 		//Init Locations
-		prehistory.addItem(safe1);
-		prehistory.addItem(safe1.getKey());
-		
-		
+        prehistory.addItem(new Potion());
+		antiquity.addItem(chest1);
+		middle_ages.addItem(chest2);
+		renaissance.addItem(chest3);
+		contemporary_era.addItem(chest4);
+			
 		System.out.println("Hello young Adventurer!\nWelcome to the BeyondTime adventure.\nFirst, what is your name?");
 		Scanner scanner = new Scanner(System.in);
 		hero.changeName(scanner.next());
 		hero.getBag().addItem(new Potion());
 		
 		System.out.println("Hello " + hero.getName() + "\nIn this game, you will have to fight against Boss to continue into the next Level !\nBefore we begin, you can get the list of available commands to play the game by typing HELP.");
+		grokk.discuss("Grokk : I see a big mammoth near river. Dangerous, but much meat for village. You brave enough to hunt?");
 		while(theEnd != true) {
+			//Condition to lose or win the game
+			if(hero.getHealth() <= 0) {
+				theEnd = true;
+				System.out.println("You are dead. You lost.");
+				System.exit(0);
+				return;
+			} else if (contemporary_era.getEntityByName("Cyber-Tyrant Nexus") == null) {
+				theEnd = true;
+				System.out.println("You killed the final Boss ! Well played, you ended the game !");
+				System.exit(0);
+				return;
+			}
 			System.out.print("> ");
 			
 			//Get the inputs from the player

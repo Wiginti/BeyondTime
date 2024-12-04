@@ -1,5 +1,7 @@
 package game.commandes;
 
+import game.entities.Boss;
+import game.entities.Entity;
 import game.entities.Hero;
 import game.map.Exit;
 import game.map.Location;
@@ -11,7 +13,6 @@ public class GoCommand implements Command {
 	public void onExecute(String[] args) {
 		Hero hero = World.getWorld().getHero();
 		Location currentLoc = hero.getHeroLocation();
-		String nameLoc = currentLoc.getName();
 		if(args.length == 0) {
 			System.out.println("Usage : go [destination]");
 		} else if (args.length >= 1) {
@@ -22,9 +23,20 @@ public class GoCommand implements Command {
 			Exit exitName = currentLoc.getExit(destinationName);
 			
 			if(exitName != null) {
+				if(currentLoc.getEntities() != null) {
+					for(Entity entity : currentLoc.getEntities()) {
+						if(entity instanceof Boss) {
+							System.out.println("You have to beat the Boss to go forward.");
+							return;
+						}
+					}
+				}
 				Location destination = exitName.getDestination();
 				System.out.println("You move to " + destination.getName());
 				hero.setHeroLocation(destination);
+				System.out.println("You gain 50 HP and 10 attack damage !");
+				hero.addHealth(50);
+				hero.addDamage(10);
 			} else {
 				System.out.println("This Exit doesn't exist !");
 			}

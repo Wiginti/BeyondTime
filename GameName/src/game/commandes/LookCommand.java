@@ -1,7 +1,7 @@
 package game.commandes;
 
+import game.entities.Chest;
 import game.entities.Hero;
-import game.entities.Safe;
 import game.map.Location;
 import game.map.World;
 
@@ -23,8 +23,8 @@ public class LookCommand {
 				currentLoc.displayItems();
 				break;
 			case "safe":
-				Safe mySafe = (Safe) currentLoc.getItemByName("Safe");
-				mySafe.displayItems();
+				Chest myChest = (Chest) currentLoc.getItemByName("Safe");
+				myChest.displayItems();
 			case "character":
 			case "characters":
 				currentLoc.displayEntities();
@@ -40,7 +40,7 @@ public class LookCommand {
 				System.out.println("You have " + hero.getHealth() + " HP");
 				break;
 			default:
-				System.out.println("Usage : look [characters, items, bag, health]");
+				System.out.println("Usage : look [entities, items, bag, destination, health]");
 			}
 		}
 	}

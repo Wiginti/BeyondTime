@@ -14,7 +14,7 @@ public class HeroIT {
     void testHeroConstructor() {
         
         String expectedName = "TestHero";
-        int expectedHealthPoint = Hero.DEFAULT_HEATLH;
+        int expectedHealthPoint = Hero.DEFAULT_HEALTH;
 
         
         Hero hero = new Hero();

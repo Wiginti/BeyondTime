@@ -64,12 +64,12 @@ public class Location {
 	}
 	
 	public void displayItems() {
-		try {
+		if(!this.items.isEmpty()) {
 			System.out.println("List of items available in this Location :");
 			for(Item item : this.items) {
 				System.out.println("- " + item.getClass().getSimpleName());
 			}
-		} catch (Exception e) {
+		} else {
 			System.out.println("There is no item in this Location");
 		}
 	}
@@ -82,15 +82,6 @@ public class Location {
 		for(Item item : this.items) {
 			if(item.getClass().getSimpleName().equals(name)) {
 				return item;
-			}
-		}
-		return null;
-	}
-	
-	public Entity getEntityByName() {
-		for(Entity entity : this.entities) {
-			if(entity.getName().equals(name)) {
-				return entity;
 			}
 		}
 		return null;
@@ -111,12 +102,12 @@ public class Location {
 	}
 	
 	public void displayEntities() {
-		try {
-			System.out.println("List of entities available in this Location :");
+		if(!this.entities.isEmpty()) {
+			System.out.println("List of entities available in this Location : ");
 			for(Entity entity : this.entities) {
 				System.out.println("- " + entity.getName());
 			}
-		} catch (Exception e) {
+		} else {
 			System.out.println("There is no entity in this Location");
 		}
 	}

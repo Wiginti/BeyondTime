@@ -3,22 +3,16 @@ package game.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Safe extends Item implements Containable {
+public class Chest extends Item implements Containable {
 	
 	private int size;
 	
 	public static final int MAX_ITEMS = 5;
 
-	private Key key;
 	private ArrayList<Item> items = new ArrayList<Item>();
 	
-	public Safe() {
-		this.key = new Key();
+	public Chest() {
 		this.size = 0;
-	}
-	
-	public Key getKey() {
-		return this.key;
 	}
 	
 	@Override
@@ -28,8 +22,16 @@ public class Safe extends Item implements Containable {
 	
 	@Override
 	public void addItem(Item item) {
-		if(this.size < Bag.MAX_ITEMS) {
+		if(this.size < Chest.MAX_ITEMS) {
 			items.add(item);	
+			this.size++;
+		}
+	}
+	
+	public void addItem(List<Item> items) {
+		if(items.size() + this.size < Chest.MAX_ITEMS)
+		for(Item item : items) {
+			items.add(item);
 			this.size++;
 		}
 	}

@@ -35,6 +35,8 @@ public class AttackCommand implements Command {
 						System.out.println(currentEntity.getName() + " is dead !");
 					}
 				}
+		} else {
+			System.out.println("This entity doesn't exit !");
 		}
 	}
 }

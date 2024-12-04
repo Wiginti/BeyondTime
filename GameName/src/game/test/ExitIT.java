@@ -3,13 +3,16 @@ package game.test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-public class ExitTest {
+import game.map.Exit;
+import game.map.Location;
+
+public class ExitIT {
 
     @Test
     public void testConstructorAndGetName() {
         
         String expectedName = "North";
-        Location mockLocation = new Location("Room A");
+        Location mockLocation = new Location("Room A", "description of the room");
 
         Exit exit = new Exit(expectedName, mockLocation);
         String actualName = exit.getName();
@@ -21,7 +24,7 @@ public class ExitTest {
     public void testConstructorAndGetDestination() {
         
         String exitName = "South";
-        Location expectedDestination = new Location("Room B");
+        Location expectedDestination = new Location("Room B", "description of room b");
 
         Exit exit = new Exit(exitName, expectedDestination);
         Location actualDestination = exit.getDestination();
